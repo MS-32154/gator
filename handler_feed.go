@@ -10,11 +10,6 @@ import (
 )
 
 func handlerAddFeed(s *state, cmd command, user database.User) error {
-	user, err := s.db.GetUser(context.Background(), s.cfg.CurrentUserName)
-	if err != nil {
-		return err
-	}
-
 	if len(cmd.Args) != 2 {
 		return fmt.Errorf("usage: %s <name> <url>", cmd.Name)
 	}
